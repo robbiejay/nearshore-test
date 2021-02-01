@@ -1,0 +1,33 @@
+$white: #fff
+$light-grey: #999
+$turquoise: #0c8397
+$orange: #ff7839
+$light-font: 100
+$small-font: 0.75em
+
+@mixin flex
+  display: flex
+
+@mixin flex-centered
+  @include flex
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+
+@mixin one-quarter-column
+  -webkit-flex: 1 1 25%
+  -ms-flex: 1 1 25%
+  flex: 1 1 25%
+
+@mixin three-quarters-column
+  -webkit-flex: 1 1 75%
+  -ms-flex: 1 1 75%
+  flex: 1 1 75%
+
+@mixin half-column
+  -webkit-flex: 1 1 50%
+  -ms-flex: 1 1 50%
+  flex: 1 1 50%
+
+@mixin gutter
+  padding: 0 5vw

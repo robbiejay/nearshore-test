@@ -1,3 +1,20 @@
+# Notes
+
+// Todo
+
+How to run :
+
+You need to run `ng serve` to start the Angular development server & `npm run api` to
+start the simulated JSON back-end
+
+If I had more time I would implement :
+
+Improved validation on forms, such as automatically appending decimals in the form input
+Better typing
+Avoiding use of non-null assertion
+Currency i18n support
+
+
 # NearshoreTest
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.7.

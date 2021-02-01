@@ -1,0 +1,44 @@
+@import '../styles/mixins'
+
+$header-height: 56px
+
+header
+  @include flex-centered
+  @include gutter
+  height: $header-height
+  border-top: 1px solid #ff7839
+  border-bottom: 2px solid #ff7839
+  box-shadow: 0px 1px 1px 0px #ccc
+
+header img
+  height: 28px
+  // width: 224px
+
+// Main
+
+main
+  background-image: url('../assets/background.jpg')
+  background-size: cover
+  height: calc(100vh - 56px)
+  @include flex
+  @include gutter
+  padding-top: 35px
+
+#transfer
+  @include one-quarter-column
+  padding-right: 0.875vw
+
+#recent-transactions
+  @include three-quarters-column
+  padding-left: 0.875vw
+
+
+@media (max-width: 768px)
+  main
+    display: block
+  #transfer
+    padding-right: 0
+    margin-bottom: 14px
+
+  #recent-transactions
+    padding-left: 0vw

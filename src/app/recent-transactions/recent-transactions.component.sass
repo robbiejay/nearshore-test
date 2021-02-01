@@ -1,0 +1,165 @@
+@import '../../styles/mixins'
+
+.options--area
+  @include flex-centered
+  margin-bottom: 14px
+
+.options--area__search
+  @include half-column
+  padding-left: 14px
+  position: relative
+  span
+    position: absolute
+    right: 0
+    background: #cacaca
+    color: $white
+    width: 17px
+    height: 17px
+    line-height: 16px
+    font-size: 0.75em
+    text-align: center
+    vertical-align: middle
+    right: 7px
+    top: 4px
+    border-radius: 50%
+    cursor: pointer
+
+.options--area__sort
+  @include half-column
+  @include flex-centered
+
+.options--area__sort p
+  font-weight: 600
+  font-size: 0.62em
+  width: 20%
+  text-align: center
+
+.sorting--options
+  width: 100%
+  @include flex
+
+.card--header
+  height: 47px
+
+.sorting--options button
+    order: 0
+    flex: 0 1 100%
+    align-self: auto
+    border: 1px solid #cacaca
+    background: none
+    padding: 7px 0px
+    cursor: pointer
+    font-size: 0.75em
+    text-transform: uppercase
+
+.sorting--options span
+  color: $light-grey
+  font-size: 0.75em
+  margin-left: 7px
+
+    // -webkit-flex: 0 1 100%
+    // -ms-flex: 0 1 100%
+    // -webkit-order: 0
+    // -ms-flex-order: 0
+    // -webkit-align-self: auto
+    // -ms-flex-item-align: auto
+.transactions--container
+  max-height: 66.666vh
+  overflow-y: scroll
+  box-shadow: 0px -25px 25px -25px $light-grey inset
+  border: 1px solid $light-grey
+  border-bottom: none
+  border-left: none
+
+.transactions--container::-webkit-scrollbar
+  width: 2px
+  transition: 0.2s
+
+
+/* Track */
+.transactions--container::-webkit-scrollbar-track
+  background: #f1f1f1
+
+
+/* Handle */
+.transactions--container::-webkit-scrollbar-thumb
+  background: $turquoise
+
+
+
+.transactions--container::-webkit-scrollbar:hover
+  width: 10px
+
+
+
+.transactions--item
+  border-top: 1px solid $light-grey
+  height: 56px
+  position: relative
+  @include flex-centered
+
+.transaction--category--indicator
+  position: absolute
+  width: 14px
+  height: calc(100% + 1px)
+
+.transactions--item:nth-child(1)
+  border-top: none
+
+.transactions--item--date
+    flex: 0 1 12.5%
+    font-size: 0.75em
+    width: 100%
+    text-align: center
+
+.transactions--item--icon
+    flex: 0 1 12.5%
+    text-align: center
+
+.transactions--item--icon img
+  width: 42px
+  filter: grayscale(1)
+  margin-top: 2px
+
+
+.transactions--item--content
+    flex: 0 1 62.5%
+
+.transactions--item--content h1
+  font-size: 0.75em
+  margin-bottom: 4px
+
+.transactions--item--content h2
+  font-size: 0.56em
+
+.transactions--item--amount
+    flex: 0 1 12.5%
+
+@media (max-width: 768px)
+
+  .options--area
+    display: block
+
+  .options--area__search
+    margin-bottom: 14px
+    padding-left: 0
+
+  .transaction--category--indicator
+    width: 7px
+
+  .transactions--item--date
+      flex: 0 1 20%
+
+  .transactions--item--icon
+      flex: 0 1 10%
+
+  .transactions--item--icon img
+    width: 35px
+
+  .transactions--item--content
+      flex: 0 1 50%
+      padding-left: 7px
+
+  .transactions--item--amount
+      flex: 0 1 20%
+      font-size: 0.75em

@@ -68,7 +68,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "nearshore-test:build"
+            "browserTarget": "nearshore-test:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {

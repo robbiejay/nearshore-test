@@ -1,0 +1,48 @@
+<div id="transfer" class="card">
+  <div class="card--header">
+    <img class="card--header-icon" src='../assets/icons/arrows.png'>
+    <h1>Make a Transfer</h1>
+  </div>
+  <div class="card--body">
+    <form [formGroup]="form" (submit)="onFormSubmit()">
+      <div class="form-group form-from">
+        <label for="from-account">From Account</label>
+        <input formControlName="from" type="text" name="from-account">
+      </div>
+
+      <div class="form-group form-to">
+        <label for="to-account">To Account</label>
+        <input formControlName="to" type="text" name="to-account" placeholder="Please enter account name...">
+        <span class='form-errors' *ngIf="!this.form.get('to')!.valid && form.get('to')!.touched">Please enter a valid account</span>
+      </div>
+
+      <div class="form-group form-amount">
+        <label for="amount">Amount</label>
+        <span class='amount-currency'>$</span>
+        <input formControlName="amount" type="text" name="amount" placeholder="0.00">
+        <span class='form-errors' *ngIf="!this.form.get('amount')!.valid && this.form.get('amount')!.errors!.pattern && form.get('amount')!.touched">Please enter a valid amount (Numbers only < 0)</span>
+        <span class='form-errors' *ngIf="!this.form.get('amount')!.valid && this.form.get('amount')!.errors!.min && form.get('amount')!.touched">Please enter an amount greater than 0</span>
+        <span class='form-errors' *ngIf="!this.form.get('amount')!.valid && this.form.get('amount')!.errors!.max && form.get('amount')!.touched">You do not have enough funds in your account</span>
+      </div>
+
+      <button class='btn--submit' type="button" (click)="previewTransfer()">Submit</button>
+
+      <div id="transfer-preview" [ngClass]="{ 'hidden' : !previewActive }">
+        <div class="card">
+          <div class="card--header">
+            <h1>Confirm your transfer</h1>
+          </div>
+          <div class="card--body">
+            <div class="preview-content">
+              <p><span>From : </span><span>{{form.get('from')!.value}}</span></p>
+              <p><span>To : </span><span>{{form.get('to')!.value}}</span></p>
+              <p><span>Amount : </span><span>{{form.get('amount')!.value | currency}}</span></p>
+              <button class='btn--submit' type="submit" name="submit">Confirm</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<div id='recent-transations' class="card">
+  <div class="card--header">
+    <img class="card--header-icon" src='../assets/icons/briefcase.png'>
+    <h1>Recent Transactions</h1>
+  </div>
+  <div class="card--body">
+    <div class="options--area">
+      <div class="options--area__search">
+        <form [formGroup]="form">
+        <input formControlName="search" type="text" name="search" (input)="filterResults()" placeholder="Search by typing">
+        <span (click)='clearFilter()' *ngIf="this.form.get('search')!.value !== ''" class='clearFilter'>X</span>
+        </form>
+      </div>
+      <div class="options--area__sort">
+        <p>Sort By</p>
+        <div class="sorting--options">
+          <button (click)="sortByDate()" type="button" name="sort-by-date">Date<span *ngIf='this.sortByDateActive'>{{this.orderDescending ? '&#9650;' : '&#9660;'}}</span></button>
+          <button (click)="sortByBeneficiary()" type="button" name="sort-by-beneficiary">Beneficiary<span *ngIf='this.sortByBeneficiaryActive'>{{this.orderDescending ? '&#9650;' : '&#9660;'}}</span></button>
+          <button (click)="sortByAmount()" type="button" name="sort-by-amount">Amount<span *ngIf='this.sortByAmountActive'>{{this.orderDescending ? '&#9650;' : '&#9660;'}}</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="transactions--container">
+      <div class="transactions--item" *ngFor="let transaction of transactions">
+        <div class="transaction--category--indicator"
+        [ngStyle]="{'background-color': transaction.categoryCode}">
+
+        </div>
+        <div class="transactions--item--date">
+          <p>{{transaction.dates.valueDate | date: 'MMM d'}}</p>
+        </div>
+        <div class="transactions--item--icon">
+          <img [src]="IMG_ID_MAP[transaction.merchant.name]" alt="">
+        </div>
+        <div class="transactions--item--content">
+          <h1>{{transaction.merchant.name}}</h1>
+          <h2>{{transaction.transaction.type}}</h2>
+        </div>
+        <div class="transactions--item--amount">
+          <p>{{transaction.transaction.creditDebitIndicator == 'CRDT' ? '+' : '-'}}
+            {{transaction.transaction.amountCurrency.amount}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

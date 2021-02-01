@@ -1,1 +1,108 @@
-/* You can add global styles to this file, and also import other style files */
+@import './styles/reset'
+@import './styles/mixins'
+
+body
+  font-family: "Kanit", sans-serif
+
+
+
+// Flex Containers
+
+
+
+.wrapper--flex
+    padding: 0px 2.5%
+    display: flex
+
+// change display to block for smaller screensizes
+.wrapper--flex-centered
+  -webkit-align-items: center
+  -ms-flex-align: center
+  align-items: center
+
+.wrapper--flex-start
+      -webkit-align-items: flex-start
+      -ms-flex-align: start
+      align-items: flex-start
+
+
+.column--flex-1
+    -webkit-flex: 1 1 25%
+    -ms-flex: 1 1 25%
+    flex: 1 1 25%
+    -webkit-align-self: auto
+    -ms-flex-item-align: auto
+    align-self: auto
+    padding: 14px
+
+.column--flex-2
+    -webkit-flex: 1 1 50%
+    -ms-flex: 1 1 50%
+    flex: 1 1 50%
+    // -webkit-align-self: auto
+    // -ms-flex-item-align: auto
+    // align-self: auto
+    //padding: 14px
+
+.column--flex-3
+    -webkit-flex: 3 1 75%
+    -ms-flex: 3 1 75%
+    flex: 3 1 75%
+    -webkit-align-self: auto
+    -ms-flex-item-align: auto
+    align-self: auto
+    padding: 14px
+
+// Card
+
+.card
+  box-shadow: 0px 0px 5px 0px rgba(105,105,105,1)
+
+.card--header
+  background: $turquoise
+  color: $white
+  font-weight: $light-font
+  position: relative
+  height: 35px
+  text-align: center
+  @include flex-centered
+
+
+
+.card--header h1
+  width: 100%
+  font-weight: 200
+
+.card--header-icon
+  position: absolute
+  left: 15px
+  height: 21px
+
+.card--body
+  background: $white
+  padding: 14px
+
+button
+  font-family: "Kanit", sans-serif
+
+input
+  border: none
+  padding: 2px 0px
+  border-bottom: 2px solid #cacaca
+  color: $light-grey
+  width: calc(100%)
+  transition: 0.1s
+  font-family: "Kanit", sans-serif
+  font-weight: 200
+
+input:focus
+  box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.25)
+  outline: none
+  padding: 2px 3px
+  width: calc(100% - 6px)
+  border-bottom: 2px solid #8a8a8a
+
+
+input:disabled
+  background: none
+  cursor: not-allowed
